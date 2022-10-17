@@ -15,6 +15,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ShoppingTests {
     private static final String m_loginFileName = "loginInfo.txt";
@@ -59,7 +60,7 @@ public class ShoppingTests {
         logIn(m_driver);
         m_driver.findElement(By.xpath("//li[@class = 'inactive']/a[@href = '/digital-downloads']")).click();
         orderItemsFromList(m_driver, m_wait, items);
-        assertFalse(m_driver.findElements(By.xpath("//strong[contains(text(), 'Your order has been successfully processed!')]")).isEmpty());
+        assertTrue(m_driver.findElements(By.xpath("//strong[contains(text(), 'Your order has been successfully processed!')]")).isEmpty());
     }
 
     private void orderItemsFromList(WebDriver driver, WebDriverWait wait, List<String> items)
